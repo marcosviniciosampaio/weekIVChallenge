@@ -1,27 +1,19 @@
-package com.example.carregistrationservice.entity;
+package com.example.carregistrationservice.dto;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "CAR_TB")
-public class Car {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CarDtoResponse {
     private Long idChassi;
     private String name;
-    private String brand;
-    private String color;
-    private String fabricationYear;
 
-    public Car(){
-    }
-    public Car(Long idChassi, String name, String brand, String color, String fabricationYear) {
+    public CarDtoResponse(Long idChassi, String name, String brand, String color, String fabricationYear) {
         this.idChassi = idChassi;
         this.name = name;
         this.brand = brand;
         this.color = color;
         this.fabricationYear = fabricationYear;
     }
+
+    private String brand;
+    private String color;
 
     public Long getIdChassi() {
         return idChassi;
@@ -63,16 +55,7 @@ public class Car {
         this.fabricationYear = fabricationYear;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "idChassi=" + idChassi +
-                ", name='" + name + '\'' +
-                ", brand='" + brand + '\'' +
-                ", color='" + color + '\'' +
-                ", fabricationYear='" + fabricationYear + '\'' +
-                '}';
-    }
+    private String fabricationYear;
+
+
 }
-
-
