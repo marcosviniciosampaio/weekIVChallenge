@@ -73,6 +73,10 @@ public class Car {
                 ", fabricationYear='" + fabricationYear + '\'' +
                 '}';
     }
+
+    public String invalidBrand(String msg){
+        return msg;
+    }
 }
 
 
