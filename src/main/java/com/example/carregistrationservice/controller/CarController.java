@@ -18,16 +18,12 @@ public class CarController {
 
     @PostMapping("/post")
     public Car post(@RequestBody CarDtoRequest carDtoRequest){
-        if (carDtoRequest.getBrand().equalsIgnoreCase(("ford")) ||
-                (carDtoRequest.getBrand().equalsIgnoreCase(("bmw"))) ||
-                (carDtoRequest.getBrand().equalsIgnoreCase(("chevrolet"))) ||
-                (carDtoRequest.getBrand().equalsIgnoreCase(("volvo")))) {
+        if (carDtoRequest.getBrand().equalsIgnoreCase(("ford")) || (carDtoRequest.getBrand().equalsIgnoreCase(("bmw"))) || (carDtoRequest.getBrand().equalsIgnoreCase(("chevrolet"))) || (carDtoRequest.getBrand().equalsIgnoreCase(("volvo")))) {
             return carService.save(carDtoRequest);
         }else{
             throw new ApiRequestException(" Invalid Brand. ");
         }
     }
-
 
     @GetMapping ("/get/{id}")
     public CarDtoResponse get(@PathVariable Long id) {

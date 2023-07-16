@@ -13,9 +13,6 @@ public class CarService {
 
     @Autowired
     CarRepository carRepository;
-    CarDtoResponse carDtoResponse;
-    Car car;
-
     public Car save(CarDtoRequest carDtoRequest) {
           Car car = new Car(
                 null,
@@ -24,10 +21,7 @@ public class CarService {
                 carDtoRequest.getColor(),
                 carDtoRequest.getFabricationYear()
         );
-          if(carDtoRequest.getName() != null &&
-        carDtoRequest.getBrand() != null &&
-                carDtoRequest.getColor() != null &&
-                carDtoRequest.getFabricationYear() != null) {
+          if(carDtoRequest.getName() != null && carDtoRequest.getBrand() != null && carDtoRequest.getColor() != null && carDtoRequest.getFabricationYear() != null) {
               carRepository.save(car);
               return car;
           }else{

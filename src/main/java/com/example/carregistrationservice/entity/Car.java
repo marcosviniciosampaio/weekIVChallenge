@@ -13,8 +13,9 @@ public class Car {
     private String color;
     private String fabricationYear;
 
-    public Car(){
+    public Car() {
     }
+
     public Car(Long idChassi, String name, String brand, String color, String fabricationYear) {
         this.idChassi = idChassi;
         this.name = name;
@@ -73,10 +74,5 @@ public class Car {
                 ", fabricationYear='" + fabricationYear + '\'' +
                 '}';
     }
-
-    public String invalidBrand(String msg){
-        return msg;
-    }
 }
-
 
