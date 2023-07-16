@@ -24,8 +24,15 @@ public class CarService {
                 carDtoRequest.getColor(),
                 carDtoRequest.getFabricationYear()
         );
-          carRepository.save(car);
-          return car;
+          if(carDtoRequest.getName() != null &&
+        carDtoRequest.getBrand() != null &&
+                carDtoRequest.getColor() != null &&
+                carDtoRequest.getFabricationYear() != null) {
+              carRepository.save(car);
+              return car;
+          }else{
+              throw new ApiRequestException(" null not allowed.");
+          }
     }
 
     public CarDtoResponse getCarById(Long idChassi) {
