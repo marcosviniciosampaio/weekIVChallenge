@@ -18,11 +18,7 @@ public class CarController {
 
     @PostMapping("/post")
     public Car post(@RequestBody CarDtoRequest carDtoRequest){
-        if (carDtoRequest.getBrand().equalsIgnoreCase(("ford")) || (carDtoRequest.getBrand().equalsIgnoreCase(("bmw"))) || (carDtoRequest.getBrand().equalsIgnoreCase(("chevrolet"))) || (carDtoRequest.getBrand().equalsIgnoreCase(("volvo")))) {
-            return carService.save(carDtoRequest);
-        }else{
-            throw new ApiRequestException(" Invalid Brand. ");
-        }
+        return carService.save(carDtoRequest);
     }
 
     @GetMapping ("/get/{id}")

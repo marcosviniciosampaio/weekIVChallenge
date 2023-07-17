@@ -20,12 +20,19 @@ public class CarService {
                 carDtoRequest.getBrand(),
                 carDtoRequest.getColor(),
                 carDtoRequest.getFabricationYear()
-        );
+          );
           if(carDtoRequest.getName() != null && carDtoRequest.getBrand() != null && carDtoRequest.getColor() != null && carDtoRequest.getFabricationYear() != null) {
-              carRepository.save(car);
-              return car;
-          }else{
-              throw new ApiRequestException(" null not allowed.");
+              if ((carDtoRequest.getBrand().equalsIgnoreCase(("ford")) ||
+                      (carDtoRequest.getBrand().equalsIgnoreCase(("bmw"))) ||
+                      (carDtoRequest.getBrand().equalsIgnoreCase(("chevrolet"))) ||
+                      (carDtoRequest.getBrand().equalsIgnoreCase(("volvo"))))){
+                  carRepository.save(car);
+                  return car;
+              }else{
+                  throw new ApiRequestException(" Invalid brand.");
+              }
+        }else{
+            throw new ApiRequestException("Null not allowed.");
           }
     }
 

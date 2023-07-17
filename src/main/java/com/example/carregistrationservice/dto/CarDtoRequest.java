@@ -1,6 +1,11 @@
 package com.example.carregistrationservice.dto;
 
 public class CarDtoRequest {
+    private String name;
+    private String brand;
+    private String color;
+    private String fabricationYear;
+
     public CarDtoRequest(String name, String brand, String color, String fabricationYear) {
         this.name = name;
         this.brand = brand;
@@ -8,11 +13,6 @@ public class CarDtoRequest {
         this.fabricationYear = fabricationYear;
     }
 
-    private String name;
-    private String brand;
-    private String color;
-
-    private String fabricationYear;
 
     public String getName() {
         return name;
